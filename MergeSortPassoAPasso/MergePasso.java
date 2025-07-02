@@ -37,7 +37,7 @@ public class MergePasso {
     int j = midHelper + 1; 
     int k = ini; 
 
-    while(i <= (midHelper) && j <= fim - ini) {
+    while(i <= midHelper && j <= fim - ini) {
       if(helper[i] <= helper[j])
         v[k++] = helper[i++]; 
       else
