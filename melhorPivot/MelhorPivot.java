@@ -17,9 +17,14 @@ public class MelhorPivot {
     lomutoPartition(nums, 0, nums.length-1);
     
     int mid = nums.length / 2;
+    int pivot = mid; 
 
-    for(int i = 0; i < v.length; i++) {
+    for(int i = 0; i < helper.length; i++) {
+          if(nums[mid] == helper[i]) {
+            pivot = i; 
+            break; 
 
+          }
     }
 
     
