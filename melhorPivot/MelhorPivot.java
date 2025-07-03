@@ -34,7 +34,8 @@ public class MelhorPivot {
     int j = pivot;
 
     (while i < v.length && j >= 0) {
-      if(num1 == 
+      if(num1 == pivot) return num1; 
+      if(num2 == pivot
 
     }
 
