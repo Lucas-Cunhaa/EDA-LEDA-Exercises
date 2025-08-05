@@ -36,7 +36,7 @@ class HashTableOpen {
         break;
       }
 
-      if(this.table[pos].equals(this.SENTINEL)) freeSpace = pos;
+      if(this.table[pos].equals(this.SENTINEL) && pos == freeSpace == 0) freeSpace = pos;
       
       probation++;
       pos = (keyHash + probation) % this.table.length;
@@ -53,8 +53,7 @@ class HashTableOpen {
   while(probation < this.table.length) {
     if(this.table[pos] == null) return;
 
-    if(this.table[pos] != null && this.table[pos].getKey() == key) 
-      this.table[pos] = this.SENTINEL;
+    if(this.table[pos].getKey() == key) this.table[pos] = this.SENTINEL;
 
     probation++;
     pos = (probation + hashKey) % this.table.length;
