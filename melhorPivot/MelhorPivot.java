@@ -10,64 +10,31 @@ public class MelhorPivot {
     String[] targets = sc.nextLine().split(" "); 
 
     int[] nums = Arrays.stream(line).mapToInt(Integer::parseInt).toArray();
-    int[] guess = Arrays.stream(line).mapToInt(Integer::parseInt).toArray(); 
-    
-    int[] helper = copy(nums);
+    int[] guess = Arrays.stream(targets).mapToInt(Integer::parseInt).toArray(); 
 
-    lomutoPartition(nums, 0, nums.length-1);
-    
-    int mid = nums.length / 2;
+    System.out.println(findBestPivot(nums, guess[0], guess[1])); 
+  }
+
+  private static int findBestPivot(int[] v, int pos1, int pos2) {
+    int maiorNum1 = 0; 
+    int maiorNum2 = 0;
+    int menorNum1 = 0;
+    int menorNum2 = 0;
 
     for(int i = 0; i < v.length; i++) {
+      if(v[i] > v[pos1]) menorNum1++;
+      else if(v[i] < v[pos1]) maiorNum1++; 
 
+      if(v[i] > v[pos2]) menorNum2++;
+      else if(v[i] < v[pos2]) maiorNum2++; 
     }
 
-    
+    int diff1 = maiorNum1 - menorNum1;
+    int diff2 = maiorNum2 - menorNum2; 
 
-  public findBestPivot(int[] v, int num1, num2, pivot) {
-    int i = pivot; 
-    int j = pivot;
-
-    (while i < v.length && j >= 0) {
-      if(num1 == 
-
-    }
-
-  }
-  public static int lomutoPartition(int[] v, int ini, int fim) {
-    int pivot = v[ini]; 
-    int i = ini; 
-     
-    for(int j = i+1; j <= fim; j++) {
-      if(pivot >= v[j]) {
-        i++;
-        swap(v, i, j); 
-      }
-    }
-    
-    System.out.println(Arrays.toString(v));
-    
-    swap(v, ini, i);
-
-    return i;
-  }
-
-  private static void swap(int[] v, int i, int j) {
-		int aux = v[i];
-
-		v[i] = v[j];
-		v[j] = aux;
-	}
-
-  private static int[] copy(int[] target) {
-    int result = new int[target.length]
-
-    for(int i = 0; i < v.length; i++)
-      result[i] = target[i]; 
-
+    int result = Math.abs(diff2) >= Math.abs(diff1) ? pos1 : pos2;
+  
     return result;
-
   }
-
 
 }
